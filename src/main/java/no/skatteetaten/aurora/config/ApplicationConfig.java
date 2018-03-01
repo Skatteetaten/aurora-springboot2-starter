@@ -11,9 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,14 +46,8 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public EmbeddedServletContainerCustomizer tomcatCustomizer(GracefulShutdown gs) {
-        return configurableEmbeddedServletContainer -> {
-            if (configurableEmbeddedServletContainer instanceof TomcatEmbeddedServletContainerFactory) {
-                logger.debug("customize tomcat");
-                ((TomcatEmbeddedServletContainerFactory) configurableEmbeddedServletContainer)
-                    .addConnectorCustomizers(gs);
-            }
-        };
+    public WebServerFactoryCustomizer<TomcatServletWebServerFactory> tomcatCustomizer(GracefulShutdown gs) {
+        return server -> server.addConnectorCustomizers(gs);
     }
 
     /**
