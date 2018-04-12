@@ -9,9 +9,7 @@ import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -20,7 +18,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertiesPropertySource;
-import org.springframework.web.client.RestTemplate;
 
 import no.skatteetaten.aurora.GracefulShutdown;
 import no.skatteetaten.aurora.filter.logging.AuroraHeaderFilter;
@@ -38,16 +35,6 @@ public class ApplicationConfig {
 
     public ApplicationConfig(ConfigurableEnvironment env) {
         this.env = env;
-    }
-
-    @Bean
-    public GracefulShutdown gs() {
-        return new GracefulShutdown();
-    }
-
-    @Bean
-    public WebServerFactoryCustomizer<TomcatServletWebServerFactory> tomcatCustomizer(GracefulShutdown gs) {
-        return server -> server.addConnectorCustomizers(gs);
     }
 
     /**
@@ -124,11 +111,4 @@ public class ApplicationConfig {
 
         return secretProps;
     }
-
-    @ConditionalOnMissingBean(RestTemplate.class)
-    @Bean
-    RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.build();
-    }
-
 }
