@@ -2,5 +2,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   no.skatteetaten.aurora.config.ApplicationConfig,\
   no.skatteetaten.aurora.TomcatCustomizer,\
   no.skatteetaten.aurora.config.AuroraProperties,\
-  no.skatteetaten.aurora.AuroraMetrics
+  no.skatteetaten.aurora.AuroraMetrics,\
+  no.skatteetaten.aurora.logging.MdcRequestFilter,\
+  no.skatteetaten.aurora.logging.RequestResponseLogFilter
 org.springframework.context.ApplicationListener=no.skatteetaten.aurora.DatabasePropertiesListener

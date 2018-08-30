@@ -149,6 +149,50 @@ Actuator will also be configured to use the port specified by the `MANAGEMENT_HT
 value of this variable will be set by the Aurora platform when deploying. Security on the actuator endpoints and the
 metrics filter will be disabled.
 
+=== Configuration of Request-based logging
+
+With request-based logging you can set the log level per request with the http-header X-REQUEST-LOG-LEVEL
+
+This feature is disabled by default. Enable by setting this:
+
+[source]
+----
+aurora.starter.requestbasedlogging.enabled: true
+----
+
+By default you can call requests with the specified log level every 30 seconds. Modify this property to change this value:
+
+[source]
+----
+aurora.starter.requestbasedlogging.wait: 30
+----
+
+If you want to use request-based logging with the local profile, you need to provide a logback.xml file.
+
+Add something like this to the local profile:
+
+[source]
+----
+logging.config: local-logback.xml
+----
+
+Add this to the logback.xml file :
+
+[source]
+----
+<turboFilter class="ch.qos.logback.classic.turbo.DynamicThresholdFilter">
+    <Key>X-REQUEST-LOG-LEVEL</Key>
+    <DefaultThreshold>INFO</DefaultThreshold>
+    <MDCValueLevelPair>
+      <value>TRACE</value>
+      <level>TRACE</level>
+    </MDCValueLevelPair>
+    <MDCValueLevelPair>
+      <value>DEBUG</value>
+      <level>DEBUG</level>
+    </MDCValueLevelPair>
+  </turboFilter>
+----
 
 === Setting of Spring Boot Properties
 
