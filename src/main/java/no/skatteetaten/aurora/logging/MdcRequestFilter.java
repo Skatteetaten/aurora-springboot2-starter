@@ -19,7 +19,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 @Configuration
-@ConditionalOnProperty(prefix = "aurora.starter.requestbasedlogging", name = "enabled")
+@ConditionalOnProperty(prefix = "aurora.starter.requestbasedlogging", name = "enabled", matchIfMissing = true)
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class MdcRequestFilter implements Filter {
 

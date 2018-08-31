@@ -153,11 +153,11 @@ metrics filter will be disabled.
 
 With request-based logging you can set the log level per request with the http-header X-REQUEST-LOG-LEVEL
 
-This feature is disabled by default. Enable by setting this:
+This feature is enabled by default. Disable it by setting this:
 
 [source]
 ----
-aurora.starter.requestbasedlogging.enabled: true
+aurora.starter.requestbasedlogging.enabled: false
 ----
 
 By default you can call requests with the specified log level every 30 seconds. Modify this property to change this value:
