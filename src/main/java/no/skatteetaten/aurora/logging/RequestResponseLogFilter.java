@@ -17,7 +17,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(prefix = "aurora.starter.requestbasedlogging", name = "enabled")
+@ConditionalOnProperty(prefix = "aurora.starter.requestbasedlogging", name = "enabled", matchIfMissing = true)
 public class RequestResponseLogFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(RequestResponseLogFilter.class);
