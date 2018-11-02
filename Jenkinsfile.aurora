@@ -10,7 +10,11 @@ def overrides = [
     piTests: false,
     disableAllReports: true,
     credentialsId: "github",
-    deployTo: 'maven-central'
+    deployTo: 'maven-central',
+    openshiftBuild: false,
+    suggestVersionAndTagReleases: [
+      [branch: 'master', versionHint: '1.0']
+    ]
 ]
 
 jenkinsfile.run(version, overrides)
