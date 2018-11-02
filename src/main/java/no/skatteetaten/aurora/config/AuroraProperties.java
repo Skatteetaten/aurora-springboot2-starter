@@ -16,11 +16,12 @@ public class AuroraProperties {
     }
 
     public static class Headerfilter {
+
+        private boolean enabled;
+
         /*
          * Set to false to turn of header filter
          */
-        private boolean enabled;
-
         public boolean isEnabled() {
             return enabled;
         }
