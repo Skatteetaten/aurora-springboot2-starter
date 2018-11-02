@@ -5,19 +5,19 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "aurora.starter")
 public class AuroraProperties {
 
-    /*
-     * Set to false to turn of header filter
-     */
-    private boolean headerfilter;
+    public static class Headerfilter {
+        /*
+         * Set to false to turn of header filter
+         */
+        private boolean enabled;
 
-     /*
-     * Set to false to turn of header filter
-     */
-    public boolean isHeaderfilter() {
-        return headerfilter;
+        public boolean isEnabled() {
+            return enabled;
+        }
+
+        public void setEnabled(boolean enabled) {
+            this.enabled = enabled;
+        }
     }
 
-    public void setHeaderfilter(boolean headerfilter) {
-        this.headerfilter = headerfilter;
-    }
 }
