@@ -13,7 +13,7 @@ def overrides = [
     deployTo: 'maven-central',
     openshiftBuild: false,
     suggestVersionAndTagReleases: [
-      [branch: 'master', versionHint: '1.0']
+      [branch: 'master', versionHint: '1']
     ]
 ]
 
