@@ -153,34 +153,32 @@ metrics filter will be disabled.
 
 With request-based logging you can set the log level per request with the http-header X-REQUEST-LOG-LEVEL
 
-This feature is enabled by default. Disable it by setting this:
+Be aware that you can't manually change log levels below INFO when this feature is enabled.
+
+This feature is disabled by default. Enable it by setting this:
 
 [source]
 ----
-aurora.starter.requestbasedlogging.enabled: false
+aurora.starter.requestbasedlogging.enabled: true
 ----
 
-By default you can call requests with the specified log level every 30 seconds. Modify this property to change this value:
+By default you can call requests with the specified log level every 30 seconds. Modify the following property to change this:
 
 [source]
 ----
 aurora.starter.requestbasedlogging.wait: 30
 ----
 
-If you want to use request-based logging with the local profile, you need to provide a logback.xml file.
+If you want to use request-based logging, you also need to provide a aurora-logback.xml file. This will be included
+by the logback.xml in OpenShift.
 
-Add something like this to the local profile:
-
-[source]
-----
-logging.config: local-logback.xml
-----
-
-Add this to the logback.xml file :
+Add a file called aurora-logback.xml in src/main/resources with this content:
 
 [source]
 ----
-<turboFilter class="ch.qos.logback.classic.turbo.DynamicThresholdFilter">
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+  <turboFilter class="ch.qos.logback.classic.turbo.DynamicThresholdFilter">
     <Key>X-REQUEST-LOG-LEVEL</Key>
     <DefaultThreshold>INFO</DefaultThreshold>
     <MDCValueLevelPair>
@@ -192,6 +190,7 @@ Add this to the logback.xml file :
       <level>DEBUG</level>
     </MDCValueLevelPair>
   </turboFilter>
+</included>
 ----
 
 === Setting of Spring Boot Properties

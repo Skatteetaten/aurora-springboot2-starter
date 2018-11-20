@@ -12,14 +12,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.MDC;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
-@Configuration
-@ConditionalOnProperty(prefix = "aurora.starter.requestbasedlogging", name = "enabled", matchIfMissing = true)
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class MdcRequestFilter implements Filter {
 
@@ -27,7 +22,7 @@ public class MdcRequestFilter implements Filter {
     private final Integer requestWaitTimeSeconds;
     private long lastRun = 0;
 
-    public MdcRequestFilter(@Value("${aurora.starter.requestbasedlogging.wait:30}") Integer requestWaitTimeSeconds) {
+    public MdcRequestFilter(Integer requestWaitTimeSeconds) {
         this.requestWaitTimeSeconds = requestWaitTimeSeconds;
     }
 
