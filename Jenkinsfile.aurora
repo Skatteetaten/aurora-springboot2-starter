@@ -14,7 +14,8 @@ def overrides = [
     openshiftBuild: false,
     suggestVersionAndTagReleases: [
       [branch: 'master', versionHint: '1']
-    ]
+    ],
+    nodeVersion: "node-8"
 ]
 
 jenkinsfile.run(version, overrides)
