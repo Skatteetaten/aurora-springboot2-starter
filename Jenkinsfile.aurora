@@ -9,8 +9,7 @@ def config = [
         versionStrategy : [
                 [branch: 'master', versionHint: '1']
         ],
-        nodeVersion: "node-8"
-
+        nodeVersion: "8"
 ]
 fileLoader.withGit(config.pipelineScript, config.scriptVersion) {
    jenkinsfile = fileLoader.load('templates/leveransepakke')
