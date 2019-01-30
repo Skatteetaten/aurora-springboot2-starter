@@ -5,6 +5,7 @@ def config = [
         deployTo: 'maven-central',
         openshiftBuild: false,
         scriptVersion : 'v6',
+        javaVersion : '11',
         pipelineScript : 'https://git.aurora.skead.no/scm/ao/aurora-pipeline-scripts.git',
         versionStrategy : [
                 [branch: 'master', versionHint: '1']
