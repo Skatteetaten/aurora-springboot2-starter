@@ -2,7 +2,6 @@ package no.skatteetaten.aurora;
 
 import java.io.FileInputStream;
 import java.util.Properties;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
