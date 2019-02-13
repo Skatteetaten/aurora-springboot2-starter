@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 def config = [
         disableAllReports: true,
-        credentialsId: "github",
+        credentialsId: 'github',
         deployTo: 'maven-central',
         openshiftBuild: false,
         scriptVersion : 'v6',
@@ -10,7 +10,7 @@ def config = [
         versionStrategy : [
                 [branch: 'master', versionHint: '1']
         ],
-        nodeVersion: "8"
+        nodeVersion: '8'
 ]
 fileLoader.withGit(config.pipelineScript, config.scriptVersion) {
    jenkinsfile = fileLoader.load('templates/leveransepakke')

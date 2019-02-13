@@ -1,4 +1,8 @@
 target
+.classpath
+.factorypath
+.project
+.settings/
 .idea
 *.iml
 pom.xml.versionsBackup
