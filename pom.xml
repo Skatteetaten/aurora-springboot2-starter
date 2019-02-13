@@ -160,7 +160,7 @@
           <dependency>
             <groupId>no.skatteetaten.aurora.checkstyle</groupId>
             <artifactId>checkstyle-config</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.1</version>
           </dependency>
         </dependencies>
       </plugin>
