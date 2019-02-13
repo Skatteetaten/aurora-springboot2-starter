@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 def config = [
         disableAllReports: true,
-        credentialsId: 'github',
+        credentialsId: "github",
         deployTo: 'maven-central',
         openshiftBuild: false,
         scriptVersion : 'v6',
