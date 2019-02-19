@@ -8,7 +8,7 @@ def config = [
         javaVersion : '11',
         pipelineScript : 'https://git.aurora.skead.no/scm/ao/aurora-pipeline-scripts.git',
         versionStrategy : [
-                [branch: 'master', versionHint: '1']
+                [branch: 'master', versionHint: '2']
         ],
         nodeVersion: '8'
 ]
