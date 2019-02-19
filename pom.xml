@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>no.skatteetaten.aurora.springboot</groupId>
   <artifactId>aurora-spring-boot2-starter</artifactId>
-  <version>feature_AOS_v6-SNAPSHOT</version>
+  <version>2.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>aurora-spring-boot2-starter</name>
@@ -107,7 +107,9 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
+          <artifactId>maven-
+            
+            style-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
       </plugins>
@@ -160,7 +162,7 @@
           <dependency>
             <groupId>no.skatteetaten.aurora.checkstyle</groupId>
             <artifactId>checkstyle-config</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.2</version>
           </dependency>
         </dependencies>
       </plugin>
