@@ -3,7 +3,7 @@ def config = [
         disableAllReports: true,
         credentialsId: "github",
         deployTo: 'maven-central',
-        openshiftBuild: false,
+        openShiftBuild: false,
         scriptVersion : 'v6',
         javaVersion : '11',
         pipelineScript : 'https://git.aurora.skead.no/scm/ao/aurora-pipeline-scripts.git',
