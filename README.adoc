@@ -25,7 +25,7 @@ Include the starter as a dependency
 ----
 <dependency>
   <groupId>no.skatteetaten.aurora.springboot</groupId>
-  <artifactId>aurora-spring-boot-starter</artifactId>
+  <artifactId>aurora-spring-boot2-starter</artifactId>
   <version>${aurora.starters.version}</version>
 </dependency>
 ----
