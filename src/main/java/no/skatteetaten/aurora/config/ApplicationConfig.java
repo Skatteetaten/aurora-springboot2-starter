@@ -13,6 +13,8 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertiesPropertySource;
 import no.skatteetaten.aurora.filter.logging.AuroraHeaderFilter;
@@ -37,6 +39,7 @@ public class ApplicationConfig {
      */
     @Bean
     @ConditionalOnProperty(prefix = "aurora.starter.headerfilter", name = "enabled", matchIfMissing = true)
+    @Order(Ordered.HIGHEST_PRECEDENCE)
     public FilterRegistrationBean auroraHeaderFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.addUrlPatterns("/*");
