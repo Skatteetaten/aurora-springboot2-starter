@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.stream.Stream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -17,6 +18,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertiesPropertySource;
+
 import no.skatteetaten.aurora.filter.logging.AuroraHeaderFilter;
 
 /**
@@ -36,6 +38,8 @@ public class ApplicationConfig {
 
     /**
      * Register the {@link AuroraHeaderFilter} to apply to /api/*
+     *
+     * @return The bean to filter headers for Aurora Standard
      */
     @Bean
     @ConditionalOnProperty(prefix = "aurora.starter.headerfilter", name = "enabled", matchIfMissing = true)
@@ -51,6 +55,8 @@ public class ApplicationConfig {
      * Creates a PropertySource for configuration in the Aurora Secret properties file. This properties file is mounted
      * in the container by OpenShift when the application is deployed. In most instances, AOC is used to manage the
      * configuration that ultimately ends up in this file.
+     *
+     * @return Properties source for secret
      */
     @Bean
     public PropertiesPropertySource secretProperties() {
@@ -61,6 +67,8 @@ public class ApplicationConfig {
      * Creates a PropertySource for configuration in the Aurora Env properties file. This properties file is mounted
      * in the container by OpenShift when the application is deployed. In most instances, AOC is used to manage the
      * configuration that ultimately ends up in this file.
+     *
+     * @return Properties source for secret
      */
     @Bean
     public PropertiesPropertySource configProperties() {
@@ -70,6 +78,8 @@ public class ApplicationConfig {
     /**
      * Creates a PropertySource for some of the environment variables that exposed via the OpenShift deployment
      * configuration. The values of these environment variables are controlled by AOC.
+     *
+     * @return Properties source for aurora
      */
     @Bean
     public PropertiesPropertySource auroraProperties() {
