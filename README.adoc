@@ -65,8 +65,7 @@ The starter will add a graceful shutdown handler for Tomcat (without it Tomcat m
 === The Aurora Management Interface
 
 The starter will help you implement the requirements for the Aurora Management Interface by setting some common
-configuration values. For more information see
-https://aurora/wiki/pages/viewpage.action?pageId=121279406[Management interface og helseovervåkning].
+configuration values.
 
 Note that the `management.port` will be set to the value of the `MANAGEMENT_HTTP_PORT` environment variable provided
 by the platform. The default is to put all actuator endpoints on a different port than the main application/api
