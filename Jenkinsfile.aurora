@@ -4,7 +4,7 @@ def config = [
         credentialsId: "github",
         deployTo: 'maven-central',
         openShiftBuild: false,
-        scriptVersion : 'v6',
+        scriptVersion : 'v7',
         javaVersion : '11',
         jiraFiksetIKomponentversjon: true,
         chatRoom: "#aos-notifications",
